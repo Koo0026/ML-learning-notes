@@ -3,6 +3,10 @@
 이번 길지 않는 2달동안 공부할 딥러닝에 대해 이 페이지에서 앞으로 써 내려갈 예정이다. <br>
 먼저 python을 이용할 것이며, numpy와 matplotlib에 관한 기본적인 지식들을 알고 있는 가정으로 써내려간다.
 
+## 1. Perceptron
+
+### 1.1 Perceptron의 논리
+
 첫번째로, 신경망에 대해서 배우기전에 percepticon에 대해서 알아보자.<br>
 percepticon은 여러개의 입력으로 하나의 output을 산출한다. 
 
@@ -28,6 +32,8 @@ y = \begin{cases}
 \end{cases}
 $$
 
+### 1.2 논리게이트 구현 
+
 이러한 percepticon으로 간단한 AND, NAND, OR게이트를 구현해낼 수 있다. <br>
 각각의 GATE들에 대한 python코드는 1-week의 percepticon.py에서 확인할 수 있다.
 
@@ -39,8 +45,12 @@ $$
 이 percepticon은 여전히 사람이 weight와 bias를 선택해야한다. <br>
 하지만 이를 기계가 학습하여 선택하는 것을 우리는 목표로 하기에 이러한 기능을 하는 신경망에 대해 알아보도록 하자. 
 
+## 2. 신경망 
+
 신경망은 매개변수의 적절한 값을 데이터로부터 자동적으로 학습한다.<br>
 본격적으로 학습하는 원리를 알아보기전에 입력데이터가 무엇인지 식별하는 처리과정을 알아보도록하자. 
+
+### 2.1 Activation Function 
 
 신경망은 perceptron과 같은 구조로 구성되어 있으며, 입력층/은닉층/출력층으로 구성되어 있다. <br>
 우리가 앞에서 다뤘던 perceptron에서 b를 명시한다면, 
