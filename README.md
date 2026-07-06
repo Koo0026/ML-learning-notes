@@ -38,3 +38,48 @@ $$
 여기까지 percepticon에 대해 알아보았다. 
 이 percepticon은 여전히 사람이 weight와 bias를 선택해야한다. 하지만 이를 기계가 학습하여 선택하는 것을 우리는 목표로 하기에 
 앞으로 신경망에 대해서 알아보도록하자. 
+
+신경망은 매개변수의 적절한 값을 데이터로부터 자동적으로 학습한다.
+본격적으로 학습하는 원리를 알아보기전에 입력데이터가 무엇인지 식별하는 처리과정을 알아보도록하자. 
+
+신경망은 perceptron과 같은 구조로 구성되어 있으며, 입력층/은닉층/출력층으로 구성되어 있다. 
+우리가 앞에서 다뤘던 perceptron에서 b를 명시한다면, 
+
+$$
+y = h(b+w_1x_1+w_2x_2)
+$$
+$$
+h(x) = \begin{cases}
+0 & (x \le 0) \\
+1 & (x > 0)
+\end{cases}
+$$
+
+이떄의 $h(x)$를 우리는 앞으로 활성화함수(activation function)이라 부른다.
+
+Activation Function의 예시를 아래에서 볼 수 있다. 
+(1) Step Function: 우리가 지금까지 다루었던 Perceptron의 활성화 함수이다. 
+
+$$
+h(x) = \begin{cases}
+0 & (x \le 0) \\
+1 & (x >0)
+\end{cases}
+$$
+
+(2) Sigmoid Funtion: 신경망에서는 Sigmoid Function을 이용한다. 
+
+$$
+h(x) = \frac{1}{1+e^{-x}}
+$$
+
+(3) ReLU Function: 최근에 사용하는 활성화 함수 중 하나이다.
+
+$$
+h(x) = \begin{cases}
+x (x >0) \\
+0 (x \le 0)
+\end{cases}
+$$
+
+P.S. 신경망에서는 활성화함수가 선형함수인 경우에는 은닉층 없이도 기능하게 만들 수 있기에, 비선형 함수를 활성화 함수로 이용한다. 
