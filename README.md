@@ -68,6 +68,8 @@ $$
 이떄의 $h(x)$를 우리는 앞으로 활성화함수(activation function)이라 부른다.
 
 Activation Function의 예시를 아래에서 볼 수 있다. <br>
+(1-week의 activation_function에서 활성화함수에 대한 코드를 확인해 볼 수 있다.) <br>
+
 (1) Step Function: 우리가 지금까지 다루었던 Perceptron의 활성화 함수이다. 
 
 $$
@@ -92,5 +94,5 @@ x (x >0) \\
 \end{cases}
 $$
 
-P.S. 신경망에서는 활성화함수가 선형함수인 경우에는 은닉층 없이도 기능하게 만들 수 있기에, 비선형 함수를 활성화 함수로 이용한다. <br>
-P.S. 활성화 함수에 대한 코드는 1-week의 activation_function.py에서 확인가능하다. 
+P.S. 신경망에서는 활성화함수가 선형함수인 경우에는 은닉층 없이도 기능하게 만들 수 있기에, 비선형 함수를 활성화 함수로 이용한다. 
+
