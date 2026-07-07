@@ -29,3 +29,23 @@ def sigmoid(x):
 
 def relu(x):
     return np.maximum(0, x)
+
+
+def identify_function(x):
+    return x
+
+
+def softmax_overflow(a):
+    # overflow 문제발생 가능. -> a = a - np.max(a)로 해결 가능
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
+
+
+def softmax_notoverfolow(a):
+    c = np.max(a)
+    exp_a = np.exp(a - c)  # 오버플로우 방지
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
