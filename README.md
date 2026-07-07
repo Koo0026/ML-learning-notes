@@ -96,3 +96,87 @@ $$
 
 P.S. 신경망에서는 활성화함수가 선형함수인 경우에는 은닉층 없이도 기능하게 만들 수 있기에, 비선형 함수를 활성화 함수로 이용한다. 
 
+### 2.2 신경망 구현
+
+그럼 지금까지 배운 내용을 바탕으로 2층 신경망을 구현해보자. 
+
+```mermaid
+graph LR
+    subgraph Input_Layer
+        Input_1(x1)
+        Input_2(x2)
+        Input_Bias(1)
+    end
+
+    subgraph Hidden_Layer
+        Hidden_1(a1)
+        Hidden_2(a2)
+        Hidden_3(a3)
+        Hidden_Bias(1)
+    end
+
+    subgraph Output_Layer
+        Output_1(y1)
+        Output_2(y2)
+    end
+
+    Input_1 --> Hidden_1
+    Input_1 --> Hidden_2
+    Input_1 --> Hidden_3
+    Input_2 --> Hidden_1
+    Input_2 --> Hidden_2
+    Input_2 --> Hidden_3
+    Input_Bias --> Hidden_1
+    Input_Bias --> Hidden_2
+    Input_Bias --> Hidden_3
+
+    Hidden_1 --> Output_1
+    Hidden_1 --> Output_2
+    Hidden_2 --> Output_1
+    Hidden_2 --> Output_2
+    Hidden_3 --> Output_1
+    Hidden_3 --> Output_2
+    Hidden_Bias --> Output_1
+    Hidden_Bias --> Output_2
+```
+
+먼저 신경망의 1층 전달을 수식으로 나타내면 이와 같다.
+
+$$
+a_1^{(1)} = w_{11}^{(1)}x_1 + w_{12}^{(1)}x_2 + b_1^{(1)}
+$$
+
+이를 행렬 곱을 이용하여 간략하게 표현하면 다음과 같다.
+
+$$
+A^{(1)} = XW^{(1)} + B^{(1)}
+$$
+
+$$
+X = (x_1 \quad x_2)
+$$
+
+$$
+B^{(1)} = (b_1^{(1)} \quad b_2^{(1)} \quad b_3^{(1)})
+$$
+
+$$
+W^{(1)} = \begin{pmatrix} 
+w_{11}^{(1)} & w_{21}^{(1)} & w_{31}^{(1)} \\ 
+w_{12}^{(1)} & w_{22}^{(1)} & w_{32}^{(1)} 
+\end{pmatrix}
+$$
+
+이와 같은 방식으로 다음층도 표현을 할 수 있다.
+(구현코드는 1week의 multi_example.py를 통해 확인할 수 있다.)
+
+이러한 방식으로 작동하는 신경망을 순방향구현이라 부른다.
+이떄 출력층에서의 활성화함수를 좀 더 자세히 알아보자.
+신경망은 어떤 문제를 푸느냐에 따라 출력층에서의 활성화함수가 달라진다. 
+분류문제에서는 softmax function을 사용하며, 회귀문제에서는 보통 항등함수를 이용한다. 
+
+이때 softmax function은 출력이 0~1.0 사이의 실수로 나오며, 출력값의 총합이 1이 되기에, 확률로 계산이 가능하다는 점이 있다. 
+또한 출력층의 각 뉴런의 원소 대소관계가 변하지않기에, 실제 현업에서는 분류 과정에서는 softmax funtion을 대게 생략한다. 
+
+
+
