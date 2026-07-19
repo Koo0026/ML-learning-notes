@@ -1,7 +1,7 @@
-from common.gradient import numerical_gradient
 from common.function import *
-import sys
+from common.gradient import numerical_gradient
 import os
+import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 
